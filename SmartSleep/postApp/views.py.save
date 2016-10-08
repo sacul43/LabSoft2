@@ -1,0 +1,19 @@
+from django.shortcuts import render
+from .models import postInformation
+from django.template.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def postNewInfo(request):
+    if request.method == 'POST':
+        deviceID = request.POST['deviceID']
+        location = request.POST['deviceID']
+        data = request.POST['deviceID']
+
+        try:
+           
+ newInfo = postInformation.objects.create(deviceID, location, data)
+            newInfo.save()
+        except Exception as e:
+            print("Error while saving data to database")
+
