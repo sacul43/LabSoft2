@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.template.context_processors import csrf
+from .models import User
 from django.views.decorators.csrf import csrf_exempt
-from pymongo import MongoClient
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
 
@@ -12,18 +12,21 @@ def login(request):
         password = request.POST['password']
         reply = {}
 
+        exists = False
         try:
-            client = MongoClient()
-            db = client['smartsleep']
-            user = db.login.find({"username":username,"password":password})
-            print(user)
-            if user is None:
-             reply['result'] = "Login invalido"
-             print("login invalido")
-             return JsonResponse(reply)
-            reply['result'] = "Login Okay"
-            print('logado: ' + user)
+            for user in User.objects(username=username, password=password):
+                exists = True
+
+            if exists == False:
+                reply['result'] = "Login invalido"
+                print("login invalido")
+                return JsonResponse(reply)
+                #User.objects.create(username=username, password=password).save()
+            else:
+                reply['result'] = "Login Okay"
+                print('logado: ' + user.username)
         except Exception as e:
+            print(e)
             reply['result'] = "Erro no banco de dados"
 
         return JsonResponse(reply)
