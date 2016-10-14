@@ -3,6 +3,7 @@ from django.template.context_processors import csrf
 from .models import User, information
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from datetime import datetime, timedelta
 
 @csrf_exempt
 def postNewInfo(request):
@@ -50,6 +51,10 @@ def login(request):
         return JsonResponse(reply)
 
 def temperaturas(request):
+    if request.method == 'GET' and request.GET.get('ultimosDias', ''):
+        ndias = int(request.GET.get('ultimosDias', ''))
+        result = information.objects(dataType = 'Temperatura', dateTime__gte = datetime.now() - timedelta(days = ndias))
+        return HttpResponse(result.to_json(), content_type="application/json")
     if request.method == 'GET':
         result = information.objects(dataType = 'Temperatura')
         return HttpResponse(result.to_json(), content_type="application/json")
