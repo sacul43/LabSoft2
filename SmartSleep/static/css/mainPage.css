@@ -42,5 +42,16 @@ h1 {
 }
 
 .body {
-  background-color: white;
+  background-color: #E5E4D7;
+}
+
+
+#estatisticas {
+  background-color: #fff;
+  margin-bottom: 0px;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
 }

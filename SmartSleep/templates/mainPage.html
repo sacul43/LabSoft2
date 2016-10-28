@@ -13,6 +13,9 @@
         <link href="{% static "css/sb-admin.css" %}" rel="stylesheet">
         <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
 
+        <!--Chart-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+
 
         <!--Morris-->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
@@ -28,6 +31,9 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+        <script src="{% static "js/graficos.js" %}"></script>
 
         <title>Inicio</title>
     </head>
@@ -54,11 +60,13 @@
         </div>
       </nav>
 
-      <section id="estatisticas" class="bg-light">
-          <div class="container jumbotron">
+      <section id="estatisticas">
+          <div class="container">
               <div class="row">
                   <div class="col-lg-12 text-center">
+                    <div>
                       <h2 class="section-heading">Descubra como está o seu sono!</h2>
+                    </div>
                       <hr class="primary">
 
                       <div class="col-lg-8 col-lg-offset-2 col-md-12">
@@ -74,13 +82,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Detalhes</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
+                            <div>
+                              <canvas id="myChart" >
+                                  <script>createGraphic();</script>
+                              </canvas>
+                            </div>
                         </div>
                       </div>
 
@@ -161,10 +167,9 @@
 
         </section>
 
-        <div class="clearfix"></div>
-
         <section id="produtos" class="bg-light">
-            <div class="container jumbotron">
+          <br>
+            <div class="container-fluid">
                 <div class="col-lg-8 col-lg-offset-2 col-md-12">
                   <div class="panel panel-green">
                       <div class="panel-heading ">
