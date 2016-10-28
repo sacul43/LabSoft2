@@ -79,12 +79,6 @@
         </div>
     </header>
 
-
-
-
-
-
-
     <section class="bg-primary" id="login">
         <div class="container">
             <div class="row">
@@ -96,17 +90,19 @@
                   <div class="container">
                       <div class="row">
                           <div class="col-lg-4 col-lg-offset-4 text-center">
-                            <div class="input-group input-group-md">
-                              <span class="input-group-addon">Login</span>
-                              <input class="form-control input-size-fixed" placeholder="Login">
-                            </div><br/>
-                            <div class="input-group input-group-md">
-                              <span class="input-group-addon">Senha</span>
-                              <input class="form-control input-size-fixed" type="password" placeholder="Senha">
-                            </div><br/>
-                            <div class="input-group input-group-md">
-                              <button class="btn-primary btn-lg" type="submit"/>Logar</button>
-                            </div><br/>
+                            <form method="POST" action="login">
+                              <div class="input-group input-group-md">
+                                <span class="input-group-addon">Login</span>
+                                <input class="form-control input-size-fixed" placeholder="Login" name="username">
+                              </div><br/>
+                              <div class="input-group input-group-md">
+                                <span class="input-group-addon">Senha</span>
+                                <input class="form-control input-size-fixed" type="password" placeholder="Senha" name="password">
+                              </div><br/>
+                              <div class="input-group input-group-md">
+                                <button class="btn-primary btn-lg" type="submit"/>Logar</button>
+                              </div><br/>
+                            </form>
                           </div>
                       </div>
                   </div>
