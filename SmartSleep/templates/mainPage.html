@@ -13,10 +13,6 @@
         <link href="{% static "css/sb-admin.css" %}" rel="stylesheet">
         <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
 
-        <!--Chart-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
-
-
         <!--Morris-->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -83,8 +79,17 @@
                                 </div>
                             </div>
                             <div>
-                              <canvas id="myChart" >
-                                  <script>createGraphic();</script>
+                              <canvas id="luminosidadeCanvas" >
+                                <script>
+                                  var inputData = {
+                                    "data": [1, 2, 3, 4, 5, 6, 7]
+                                  };
+
+                                  var labels = ["p1", "p2", "p3", "p4", "p5", "p6", "p7"];
+                                  var typeChar = 'bar';
+
+                                  createGraphic("luminosidade", "luminosidadeCanvas", inputData["data"], labels, typeChar);
+                                </script>
                               </canvas>
                             </div>
                         </div>
@@ -179,6 +184,15 @@
                               </div>
                           </div>
                       </div>
+                      <div>
+                        <div class="card">
+                          <img class="card-img-top" src="{% static "img/produtos/ac.jpg" %}" alt="Ar condicionado">
+                          <div class="card-block">
+                            <p class="card-text">Ar Condicionado</p>
+                          </div>
+                        </div>
+                      </div>
+
                       <a href="#">
                           <div class="panel-footer">
                               <span class="pull-left">Detalhes</span>
