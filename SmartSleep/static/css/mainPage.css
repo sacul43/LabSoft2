@@ -24,12 +24,23 @@
     color:#eeeeee;
 }
 
-@media (max-width: @screen-sm) {
-  .huge{
-    font-size: 20px;
-  }
-}
-
 h1 {
   color: #f47d42;
+}
+
+.bg-primary {
+  background-color: #2C6700;
+}
+
+.bg-light {
+  background-color: #fff;
+}
+
+.bg-dark {
+  background-color: #2C6700;
+  color: white;
+}
+
+.body {
+  background-color: white;
 }
