@@ -50,6 +50,7 @@ def login(request):
 
         return JsonResponse(reply)
 
+@csrf_exempt
 def temperaturas(request):
     if request.method == 'GET' and request.GET.get('ultimosDias', ''):
         ndias = int(request.GET.get('ultimosDias', ''))
@@ -59,6 +60,7 @@ def temperaturas(request):
         result = information.objects(dataType = 'Temperatura')
         return HttpResponse(result.to_json(), content_type="application/json")
 
+@csrf_exempt
 def umidades(request):
     if request.method == 'GET':
         result = information.objects(dataType = 'Umidade')

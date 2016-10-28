@@ -8,4 +8,5 @@ urlpatterns  = [
         url(r'postNewInfo', views.postNewInfo, name="postNewInfo"),
         url(r'temperaturas', views.temperaturas, name="temperaturas"),
         url(r'umidades', views.umidades, name="umidades"),
+        url(r'', views.umidades, name="umidades"),
 ]
