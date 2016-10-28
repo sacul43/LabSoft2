@@ -24,6 +24,12 @@
     color:#eeeeee;
 }
 
+@media (max-width: @screen-sm) {
+  .huge{
+    font-size: 20px;
+  }
+}
+
 h1 {
   color: #f47d42;
 }
