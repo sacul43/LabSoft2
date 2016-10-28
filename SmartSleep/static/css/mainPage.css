@@ -8,8 +8,12 @@
     color:#fff;
 }
 
+.navbar-custom .navbar-nav > li > a:focus {
+    background-color:#347a00;
+}
+
 .navbar-nav > li > a:hover {
-  background-color:#92CD00;
+  background-color:#347a00;
 }
 
 .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
