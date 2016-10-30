@@ -106,6 +106,25 @@ aside {
 .navbar-default .nav > li.active > a:focus:hover {
   background-color: transparent;
 }
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.containerCard{
+    padding: 2px 16px;
+}
+
+.cardImg {
+    width: 100%;
+    padding: 2px 2px;
+}
+
 @media (min-width: 768px) {
   .navbar-default {
     background-color: transparent;

@@ -30,6 +30,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
         <script src="{% static "js/graficos.js" %}"></script>
+        <script src="{% static "js/cards.js" %}"></script>
 
         <title>Inicio</title>
     </head>
@@ -185,25 +186,48 @@
                           </div>
                       </div>
                       <div>
-                        <div class="card">
-                          <img class="card-img-top" src="{% static "img/produtos/ac.jpg" %}" alt="Ar condicionado">
-                          <div class="card-block">
-                            <p class="card-text">Ar Condicionado</p>
+                          <div class="row" style="padding:10px;" id="produtosAnunciados">
+                              <div class="col-lg-4 col-md-12">
+                                  <div class="card">
+                                      <img src="{% static "img/produtos/ac.jpg" %}" alt="" width="100%">
+                                      <div class="containerCard">
+                                        <h4 class="text-center"><b>Ar Condicionado</b></h4>
+                                        <p class="text-center">Compre aqui</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 col-md-12">
+                                  <div class="card">
+                                      <img src="{% static "img/produtos/ac.jpg" %}" alt="" width="100%">
+                                      <div class="containerCard">
+                                        <h4 class="text-center"><b>Ar Condicionado</b></h4>
+                                        <p class="text-center">Compre aqui</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 col-md-12">
+                                  <div class="card">
+                                      <img src="{% static "img/produtos/ac.jpg" %}" alt="" width="100%">
+                                      <div class="containerCard">
+                                        <h4 class="text-center"><b>Ar Condicionado</b></h4>
+                                        <p class="text-center">Compre aqui</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 col-md-12">
+                                  <div class="card">
+                                      <img src="{% static "img/produtos/ac.jpg" %}" alt="" width="100%">
+                                      <div class="containerCard">
+                                        <h4 class="text-center"><b>Ar Condicionado</b></h4>
+                                        <p class="text-center">Compre aqui</p>
+                                      </div>
+                                  </div>
+                              </div>
                           </div>
-                        </div>
                       </div>
-
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">Detalhes</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
                 </div>
-
             </div>
+        </div>
         </section>
 
         <div class="clearfix"></div>
