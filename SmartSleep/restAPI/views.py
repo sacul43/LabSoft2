@@ -13,6 +13,8 @@ def postNewInfo(request):
         data = request.POST['data']
         dataType = request.POST['dataType']
 
+        print("%s %s %s %s" % (deviceID, location, data, dataType))
+
         reply = {}
 
         try:
@@ -57,7 +59,7 @@ def temperaturas(request):
         result = information.objects(dataType = 'Temperatura', dateTime__gte = datetime.now() - timedelta(days = ndias))
         return HttpResponse(result.to_json(), content_type="application/json")
     if request.method == 'GET':
-        result = information.objects(dataType = 'Temperatura')
+        result = information.objects(dataType = 'temperatura')
         return HttpResponse(result.to_json(), content_type="application/json")
 
 @csrf_exempt

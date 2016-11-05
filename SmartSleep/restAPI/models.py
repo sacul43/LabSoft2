@@ -1,5 +1,6 @@
 from django.db import models
 from mongoengine import *
+import datetime
 
 class User(Document):
     username = StringField(required=True)
@@ -10,4 +11,4 @@ class information(Document):
     location = StringField(required=True)
     data = StringField(required=True)
     dataType = StringField(required=True)
-    dateTime = DateTimeField(auto_now=True)
+    dateTime = DateTimeField(default=datetime.datetime.now)

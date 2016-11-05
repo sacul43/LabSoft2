@@ -26,4 +26,17 @@ def login(request):
 @csrf_exempt
 def home(request):
     if request.method == 'GET':
+
+        temperaturas = get_temperaturas()
+
         return render(request, 'mainPage.html', {})
+
+def get_temperaturas():
+    all_temps = requests.get("http://127.0.0.1:8000/restAPI/temperaturas")
+
+    firsDay=[]
+    secondDay=[]
+    thirdDay=[]
+    fourthDay=[]
+    fifthDay=[]
+    sixthDa=[]
