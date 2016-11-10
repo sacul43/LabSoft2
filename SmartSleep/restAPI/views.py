@@ -3,8 +3,9 @@ from django.template.context_processors import csrf
 from .models import User, information
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from mongoengine.queryset.visitor import Q
+import json
 
 @csrf_exempt
 def postNewInfo(request):
@@ -67,6 +68,24 @@ def temperaturas(request):
             ndias = int(request.GET['mediaUltimosDias'])
             result = information.objects(Q(dataType = 'temperatura') & Q(dateTime__gte = datetime.now() - timedelta(days = ndias))).average('data')
         return HttpResponse(result, content_type="application/json")
+
+    if request.method == 'GET' and 'mediaPorDia' in request.GET:
+        result = []
+        if request.GET['mediaPorDia']:
+            ndias = int(request.GET['mediaPorDia'])
+
+            counter = ndias
+
+            while counter > 0:
+                eachDay = information.objects(Q(dataType = 'temperatura') & Q(dateTime = date.today() - timedelta(days = 0)))
+                for each in eachDay:
+                    print(each)
+                counter = counter - 1
+
+        return HttpResponse(json.dumps(result), content_type="application/json")
+
+
+
     if request.method == 'GET':
         result = information.objects(dataType = 'temperatura')
         return HttpResponse(result.to_json(), content_type="application/json")
