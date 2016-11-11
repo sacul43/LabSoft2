@@ -25,7 +25,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-    
+
 
     <!-- Plugin CSS -->
     <link href="{% static "vendor/magnific-popup/magnific-popup.css" %}" rel="stylesheet">
@@ -64,6 +64,13 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contato</a>
                     </li>
+                    <!-- #####################CADASTRO###################### -->
+
+                    <li>
+                        <a class="page-scroll" href="#cadastro">Cadastrar</a>
+                    </li>
+                    <!-- ########################################### -->
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -115,19 +122,56 @@
 
 
 
+<!-- ####################CADASTRO####################### -->
+
+    <section id="cadastro">
+        <div class="container">
+            <div class="row">
+                <div id="divCadastro" class="text-center">
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Cadastrar como pessoa fisica</h2>
+                            <hr class="primary">
+                        </div>
+                          <div class="col-lg-4 col-lg-offset-5 text-center">
+                            <div class="input-group input-group-md">
+                                <form class="" action="cadastroFis" method="get">  {% csrf_token %}
+                                  <button class="btn-light btn-lg" type="submit"/>Fazer cadastro</button>
+                                </form>
+                            </div><br/>
+                          </div>
+                          <div class="col-lg-12 text-center">
+                              <h2 class="section-heading">Cadastrar como pessoa juridica</h2>
+                              <hr class="primary">
+                          </div>
+                            <div class="col-lg-4 col-lg-offset-5 text-center">
+                              <div class="input-group input-group-md">
+                                <form class="" action="cadastroJur" method="post">  {% csrf_token %}
+                                  <button class="btn-light btn-lg" type="submit"/>Fazer cadastro</button>
+                                </form>
+                              </div><br/>
+                            </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+  </section>
+  <!-- ########################################### -->
 
 
 
 
 
 
-
-    <section id="services">
+    <section class="bg-primary" id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Conheça a nossa solução</h2>
-                    <hr class="primary">
+                    <hr class="light">
                 </div>
             </div>
         </div>
@@ -135,12 +179,12 @@
   </section>
 
 
-    <section class="bg-primary" id="contact">
+    <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Entre em contato conosco!</h2>
-                    <hr class="light">
+                    <hr class="primary">
                     <p>Qualquer dúvida ou problema, contate-nos!</p>
                 </div>
             </div>

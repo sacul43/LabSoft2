@@ -65,3 +65,26 @@ def umidades(request):
     if request.method == 'GET':
         result = information.objects(dataType = 'Umidade')
         return HttpResponse(result.to_json(), content_type="application/json")
+
+
+
+
+@csrf_exempt
+def cadastroFis(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        nome = request.POST['nome']
+        CPF = request.POST['CPF']
+        endereco = request.POST['endereco']
+        email = request.POST['email']
+        telefone = request.POST['telefone']
+        # cria um novo usuario
+        usuario = User(username=username, password=password)
+        usuario.save()
+        # cria um objeto clienteFis para o novo usuario
+        clienteFis = ClienteFis(nome=nome, CPF=CPF, endereco=endereco, email=email, telefone=telefone, user=usuario.id)
+        clienteFis.save()
+
+
+        return JsonResponse({})
