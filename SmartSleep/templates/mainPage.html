@@ -81,16 +81,29 @@
                             </div>
                             <div>
                               <canvas id="luminosidadeCanvas" >
-                                <script>
-                                  var inputData = {
-                                    "data": [1, 2, 3, 4, 5, 6, 7]
-                                  };
+                                  <script>
+                                    $.ajax({
+                                        url: "/restAPI/luminosidades?mediasPorDias=7",
+                                        type: 'GET',
+                                        dataType: 'json',
+                                        error: function() {
+                                            $(tableTarget).html('<p>Um erro ocorreu. Por favor tente novamente mais tarde.</p>');
+                                        },
+                                        success: function(data) {
+                                            // var inputData = {
+                                            //   "data": [1, 2, 3, 4, 5, 6, 7]
+                                            // };
 
-                                  var labels = ["p1", "p2", "p3", "p4", "p5", "p6", "p7"];
-                                  var typeChar = 'bar';
+                                            console.log(data);
 
-                                  createGraphic("luminosidade", "luminosidadeCanvas", inputData["data"], labels, typeChar);
-                                </script>
+                                            var labels = ["dia 1", "dia 2", "dia 3", "dia 4", "dia 5", "dia 6", "dia 7"];
+                                            var typeChar = 'bar';
+
+                                            createGraphic("luminosidade", "luminosidadeCanvas", data, labels, typeChar);
+                                        }
+                                    });
+
+                                    </script>
                               </canvas>
                             </div>
                         </div>
@@ -112,39 +125,30 @@
                             <div>
                               <canvas id="temperaturaCanvas" >
                                 <script>
-                                  // $.ajax({
-                                  //     url: "/restAPI/produtos",
-                                  //     type: 'GET',
-                                  //     dataType: 'json',
-                                  //     error: function() {
-                                  //         $(tableTarget).html('<p>Um erro ocorreu. Por favor tente novamente mais tarde.</p>');
-                                  //     },
-                                  //     success: function(data) {
-                                  //         // var inputData = {
-                                  //         //   "data": [1, 2, 3, 4, 5, 6, 7]
-                                  //         // };
+                                  $.ajax({
+                                      url: "/restAPI/temperaturas?mediasPorDias=7",
+                                      type: 'GET',
+                                      dataType: 'json',
+                                      error: function() {
+                                          $(tableTarget).html('<p>Um erro ocorreu. Por favor tente novamente mais tarde.</p>');
+                                      },
+                                      success: function(data) {
+                                          // var inputData = {
+                                          //   "data": [1, 2, 3, 4, 5, 6, 7]
+                                          // };
 
-                                  //         console.log(data);
+                                          console.log(data);
 
-                                  //         var labels = ["dia 1", "dia 2", "dia 3", "dia 4", "dia 5", "dia 6", "dia 7"];
-                                  //         var typeChar = 'bar';
+                                          var labels = ["dia 1", "dia 2", "dia 3", "dia 4", "dia 5", "dia 6", "dia 7"];
+                                          var typeChar = 'bar';
 
-                                  //         createGraphic("temperatura", "temperaturaCanvas", data, labels, typeChar);
-                                  //     }
-                                  // });
-                                  var produtos = [{produto: "nome do produto", imagem: "/img/produto.jpg"} ];
-                                  
-                                      $("#produtosAnunciados").append('<div class="col-lg-4 col-md-12"><div class="card"><img src="/static/img/produtos/ac.jpg" alt="" width="100%"><div class="containerCard"><h4 class="text-center"><b>Ar Condicionado</b></h4><p </div></div>');
-                                                                  </script>
+                                          createGraphic("temperatura", "temperaturaCanvas", data, labels, typeChar);
+                                      }
+                                  });
+
+                                  </script>
                               </canvas>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Detalhes</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                       </div>
 
@@ -162,13 +166,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Detalhes</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
+                            <div>
+                              <canvas id="umidadeCanvas" >
+                                <script>
+                                  $.ajax({
+                                      url: "/restAPI/umidades?mediasPorDias=7",
+                                      type: 'GET',
+                                      dataType: 'json',
+                                      error: function() {
+                                          $(tableTarget).html('<p>Um erro ocorreu. Por favor tente novamente mais tarde.</p>');
+                                      },
+                                      success: function(data) {
+                                          // var inputData = {
+                                          //   "data": [1, 2, 3, 4, 5, 6, 7]
+                                          // };
+
+                                          console.log(data);
+
+                                          var labels = ["dia 1", "dia 2", "dia 3", "dia 4", "dia 5", "dia 6", "dia 7"];
+                                          var typeChar = 'bar';
+
+                                          createGraphic("umidades", "umidadeCanvas", data, labels, typeChar);
+                                      }
+                                  });
+
+                                  </script>
+                              </canvas>
+                            </div>
                         </div>
                       </div>
 
@@ -185,13 +209,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">Detalhes</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
+                            <div>
+                              <canvas id="ruidoCanvas" >
+                                <script>
+                                  $.ajax({
+                                      url: "/restAPI/ruidos?mediasPorDias=7",
+                                      type: 'GET',
+                                      dataType: 'json',
+                                      error: function() {
+                                          $(tableTarget).html('<p>Um erro ocorreu. Por favor tente novamente mais tarde.</p>');
+                                      },
+                                      success: function(data) {
+                                          // var inputData = {
+                                          //   "data": [1, 2, 3, 4, 5, 6, 7]
+                                          // };
+
+                                          console.log(data);
+
+                                          var labels = ["dia 1", "dia 2", "dia 3", "dia 4", "dia 5", "dia 6", "dia 7"];
+                                          var typeChar = 'bar';
+
+                                          createGraphic("ruidos", "ruidoCanvas", data, labels, typeChar);
+                                      }
+                                  });
+
+                                  </script>
+                              </canvas>
+                            </div>
                         </div>
                     </div>
 
