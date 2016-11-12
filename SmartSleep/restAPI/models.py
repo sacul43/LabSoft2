@@ -9,6 +9,6 @@ class User(Document):
 class information(Document):
     deviceID = StringField(required=True)
     location = StringField(required=True)
-    data = StringField(required=True)
+    data = FloatField(required=True)
     dataType = StringField(required=True)
     dateTime = DateTimeField(default=datetime.datetime.now)

@@ -68,24 +68,24 @@ def temperaturas(request):
             ndias = int(request.GET['mediaUltimosDias'])
             result = information.objects(Q(dataType = 'temperatura') & Q(dateTime__gte = datetime.now() - timedelta(days = ndias))).average('data')
         return HttpResponse(result, content_type="application/json")
-
-    if request.method == 'GET' and 'mediaPorDia' in request.GET:
+    if request.method == 'GET' and 'mediasPorDias' in request.GET:
         result = []
-        if request.GET['mediaPorDia']:
-            ndias = int(request.GET['mediaPorDia'])
+        if request.GET['mediasPorDias']:
+            ndias = int(request.GET['mediasPorDias'])
 
             counter = ndias
 
+            now = date.today()
+            today = datetime(now.year, now.month, now.day)
+            oneDay = today
+
             while counter > 0:
-                eachDay = information.objects(Q(dataType = 'temperatura') & Q(dateTime = date.today() - timedelta(days = 0)))
-                for each in eachDay:
-                    print(each)
+                avg = information.objects(Q(dataType = 'temperatura') & Q(dateTime__gte=oneDay) & Q(dateTime__lt=oneDay + timedelta(days =1))).average('data')
+                result.append(avg)
+                oneDay = oneDay - timedelta(days = 1)
                 counter = counter - 1
 
         return HttpResponse(json.dumps(result), content_type="application/json")
-
-
-
     if request.method == 'GET':
         result = information.objects(dataType = 'temperatura')
         return HttpResponse(result.to_json(), content_type="application/json")
