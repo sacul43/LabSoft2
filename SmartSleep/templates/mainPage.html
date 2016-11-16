@@ -260,6 +260,49 @@
                       </div>
                       <div>
                           <div class="row" style="padding:10px;" id="produtosAnunciados">
+                              
+                              <script>
+
+                               var compre = document.createElement('p');
+                               compre.className = "text-center";
+                               compre.innerHTML = "Compre aqui";
+
+                               var ar = document.createElement('h4');
+                               ar.className = "text-center";
+                               ar.innerHTML = "<b>Ar Condicionado</b>";
+
+                               var ccard = document.createElement('div');
+                               ccard.className = "containerCard";
+                               ccard.innerHTML = compre.innerHTML + " test 1 " + ar.innerHTML;
+
+                               var image = document.createElement('img');
+                               image.src = "{% static "img/produtos/ac.jpg" %}";
+                               image.alt = "";
+                               image.width = "100%"
+
+                               var card = document.createElement('div');
+                               card.className = "card";
+                               card.innerHTML = image.innerHTML + " test 2 " + ccard.innerHTML;
+
+                               var col = document.createElement('div');
+                               col.className = "col-lg-4 col-md-12";
+                               col.innerHTML = card;
+
+                               var div = document.getElementById("dyn");
+                               document.body.insertBefore(col, div);
+
+                              </script>
+                              <div id="dyn">
+                                1
+                              </div>
+
+
+
+
+
+                              
+                              
+                              
                               <div class="col-lg-4 col-md-12">
                                   <div class="card">
                                       <img src="{% static "img/produtos/ac.jpg" %}" alt="" width="100%">
